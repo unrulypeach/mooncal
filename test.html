@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+svg {
+  background-color: black;
+}
+
+text {
+  font-family: sans-serif;
+  font-size: 10px;
+}
+</style>
+<body>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script>
+var width = 960, height = 500;
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+var content = svg.append("g").attr("transform","translate(80,30)");
+
+var monthScale = d3.scale.linear().domain([1,12]).range([0,450]);
+var dowScale   = d3.scale.linear().domain([1,7]).range([0,120]);
+var weekScale   = d3.scale.linear().domain([-1,3]).range([0,560]);
+
+//default is white path, white circle, black circle. Invert will invert colors - if it is mostly lit
+var phases = [{"name":"New Moon"       ,"arcStart":0      ,"arcEnd":2*Math.PI,"scaleX":0  ,"invert":false},
+              {"name":"Waxing Crescent","arcStart":Math.PI,"arcEnd":2*Math.PI,"scaleX":0.7,"invert":false},
+              {"name":"First Quarter"  ,"arcStart":Math.PI,"arcEnd":2*Math.PI,"scaleX":0  ,"invert":false},
+              {"name":"Waxing Gibbous" ,"arcStart":0      ,"arcEnd":  Math.PI,"scaleX":0.7,"invert":true},
+              {"name":"Full Moon"      ,"arcStart":0,"arcEnd":        0,"scaleX":0  ,"invert":false},
+              {"name":"Waning Gibbous" ,"arcStart":Math.PI,"arcEnd":2*Math.PI,"scaleX":0.7,"invert":true},
+              {"name":"Third Quarter"  ,"arcStart":0,"arcEnd":Math.PI,"scaleX":0  ,"invert":false},
+              {"name":"Waning Crescent","arcStart":0,"arcEnd":Math.PI,"scaleX":0.7,"invert":false}];
+
+function moonPhase(y,m,d) {
+    if (m < 3) {
+        y--;
+        m += 12;
+    }
+    m = m + 1;
+    var c = 365.25*y;
+    var e = 30.6*m;
+    var jd = c+e+d-694039.09;
+    jd = jd / 29.53;
+    var b = Math.floor(jd);		   
+    jd -= b;		
+    b = jd*8 + 0.5;
+    b = b & 7;
+    return b;
+}
+
+var daysOfYear = [];
+var year = 2014;
+for (var d = new Date(year, 0, 1); d < new Date(year+1,0,1); d.setDate(d.getDate() + 1)) {
+  daysOfYear.push({"month":d.getMonth()+1, "day":d.getDate(), "dow":d.getDay()+1,"year":year,"phase":moonPhase(year,d.getMonth()+1,d.getDate())});
+}
+
+var dayGs = content.selectAll(".day").data(daysOfYear).enter().append("g")
+  .attr("class", "day")
+  .attr("transform", function(d) { 
+    tX = weekScale(Math.floor((d.day-d.dow)/7))+dowScale(d.dow);
+    tY = monthScale(d.month);
+    return "translate(" + tX + "," + tY + ")";
+  });
+
+var arc = d3.svg.arc().outerRadius(8);
+
+dayGs.append("circle").attr({"r":8}).style("fill",function(d) { return phases[d.phase].invert ? "black" : "white"; });
+dayGs.append("circle").attr({"r":8}).style("fill",function(d) { return phases[d.phase].invert ? "white" : "black"; })
+  .attr("transform",function(d) {
+    var xScale = phases[d.phase].scaleX;
+    return "scale(" + xScale + ",1)";
+  });
+
+dayGs.append("path").attr("d", function(d) {
+  var phase = phases[d.phase];
+  return arc.innerRadius(0).startAngle(phase.arcStart).endAngle(phase.arcEnd)();
+}).style("fill",function(d) { return phases[d.phase].invert ? "white" : "black"; });
+
+dayGs.append("text")
+  .text(function(d) { return d.day })
+  .attr("x", function(d) { return d.day < 10 ? -3 : -6 })
+  .attr("y",-11)
+  .style("fill","#ccc");
+//dayGs.append("text").text(function(d) { return phases[d.phase].name }).attr({"x":-6,"y":3});
+</script>
+</body>
