@@ -51,7 +51,7 @@ function moonPhase(y,m,d) {
 }
 
 var daysOfYear = [];
-var year = 2014;
+var year = 2023;
 for (var d = new Date(year, 0, 1); d < new Date(year+1,0,1); d.setDate(d.getDate() + 1)) {
   daysOfYear.push({"month":d.getMonth()+1, "day":d.getDate(), "dow":d.getDay()+1,"year":year,"phase":moonPhase(year,d.getMonth()+1,d.getDate())});
 }

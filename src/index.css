@@ -1,3 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Cardo&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  font-family: 'Cardo', serif;
+}
+
+.sphere {
+  border-radius: 100%;
+  width: 75px;
+  height: 75px;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  position: relative;
+}
+
+.hemisphere {
+  width: 50%;
+  height: 100%;
+}
+
+.light {
+  background-color: #f0de79;
+}
+
+.dark {
+  background-color: #F4F6F0;
+}
+
+.divider,
+.divider:after {
+  top: 0;
+  left: 0;
+  width: 75px;
+  height: 75px;
+  position: absolute;
+  border-radius: 100%;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+.divider {
+  background-color: #F4F6F0;
+}
+
+.divider:after {
+  content: '';
+  background-color: #f0de79;
+  transform: rotateY(180deg);
+}
