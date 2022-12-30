@@ -23,14 +23,17 @@ export default function Calendar({ month, year }) {
 
   const daysInMonth = [];
   for (let i=1; i <= moment(`${year}-${month}`, "YYYY-MM").daysInMonth(); i+=1){
-    daysInMonth.push(<td className={`calendar-day month${month} w-[150px] h-[150px] p-1`}>{i}<Moon date={new Date(year, month-1, i)}/></td>)
+    daysInMonth.push(<td className={`calendar-day month${month} w-[150px] h-[150px] p-1`}>
+      <span className='py-2 px-3'>{i}</span>
+      <Moon date={new Date(year, month-1, i)}/>
+    </td>)
   }
 
   return (
-    <div className='p-9'>
+    <div className='m-10'>
       <div className='p-3 w-36 flex flex-col items-center'>
         <h1 className='text-8xl'>{Number(month)}</h1>
-        <h2 className='text-2xl'>{moment().month(month-1).format("MMMM")}</h2>
+        <h2 className='text-xl'>{moment().month(month-1).format("MMMM")}</h2>
         <h3>{year}</h3>
       </div>
       <div>

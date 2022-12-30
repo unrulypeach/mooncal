@@ -30,6 +30,50 @@ body {
   background-color: #F4F6F0;
 }
 
+.fullmoon .light, .fullmoon .divider:after{
+  filter: brightness(1.1) contrast(0.9) hue-rotate(342deg);
+}
+
+.feb .light, .feb .divider:after{
+  background-color: #f87a5a;
+}
+
+.mar .light, .mar .divider:after{
+  background-color: #52796f;
+}
+
+.apr .light, .apr .divider:after{
+  background-color: #f1b3be;
+}
+
+.may .light, .may .divider:after{
+  background-color: #5cc9eb;
+}
+
+.jun .light, .jun .divider:after{
+  background-color: #ffb4a2;
+}
+
+.jul .light, .jul .divider:after{
+  background-color: #b493af;
+}
+
+.aug .light, .aug .divider:after{
+  background-color: #e7b717;
+}
+.sep .light, .sep .divider:after{
+  background-color: #a3b182;
+}
+.oct .light, .oct .divider:after{
+  background-color: #4d5692;
+}
+.nov .light, .nov .divider:after{
+  background-color: #a18273;
+}
+.dec .light, .dec .divider:after{
+  background-color: #f76264;
+}
+
 .divider,
 .divider:after {
   top: 0;
