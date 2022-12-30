@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/mooncal/static/css/main.46bcf810.css",
+    "main.js": "/mooncal/static/js/main.4f979eb4.js",
+    "index.html": "/mooncal/index.html",
+    "main.46bcf810.css.map": "/mooncal/static/css/main.46bcf810.css.map",
+    "main.4f979eb4.js.map": "/mooncal/static/js/main.4f979eb4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.46bcf810.css",
+    "static/js/main.4f979eb4.js"
+  ]
+}
