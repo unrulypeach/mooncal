@@ -23,7 +23,7 @@ body {
 }
 
 .light {
-  background-color: #f0de79;
+  background-color: #f5e589;
 }
 
 .dark {
@@ -43,7 +43,7 @@ body {
 }
 
 .apr .light, .apr .divider:after{
-  background-color: #f1b3be;
+  background-color: #b8ade9;
 }
 
 .may .light, .may .divider:after{
@@ -55,11 +55,11 @@ body {
 }
 
 .jul .light, .jul .divider:after{
-  background-color: #b493af;
+  background-color: #c096c5;
 }
 
 .aug .light, .aug .divider:after{
-  background-color: #e7b717;
+  background-color: #f3c11d;
 }
 .sep .light, .sep .divider:after{
   background-color: #a3b182;
@@ -92,6 +92,6 @@ body {
 
 .divider:after {
   content: '';
-  background-color: #f0de79;
+  background-color: #f5e589;
   transform: rotateY(180deg);
 }
