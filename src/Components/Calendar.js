@@ -30,7 +30,7 @@ export default function Calendar({ month, year }) {
   }
 
   return (
-    <div className='m-10'>
+    <div className='my-14 mx-10'>
       <div className='p-3 w-36 flex flex-col items-center'>
         <h1 className='text-8xl'>{Number(month)}</h1>
         <h2 className='text-xl'>{moment().month(month-1).format("MMMM")}</h2>
