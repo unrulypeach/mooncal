@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/mooncal/static/css/main.2a03b74d.css",
-    "main.js": "/mooncal/static/js/main.4f979eb4.js",
+    "main.css": "/mooncal/static/css/main.d4e563d4.css",
+    "main.js": "/mooncal/static/js/main.9e8f8e28.js",
     "index.html": "/mooncal/index.html",
-    "main.2a03b74d.css.map": "/mooncal/static/css/main.2a03b74d.css.map",
-    "main.4f979eb4.js.map": "/mooncal/static/js/main.4f979eb4.js.map"
+    "main.d4e563d4.css.map": "/mooncal/static/css/main.d4e563d4.css.map",
+    "main.9e8f8e28.js.map": "/mooncal/static/js/main.9e8f8e28.js.map"
   },
   "entrypoints": [
-    "static/css/main.2a03b74d.css",
-    "static/js/main.4f979eb4.js"
+    "static/css/main.d4e563d4.css",
+    "static/js/main.9e8f8e28.js"
   ]
 }
